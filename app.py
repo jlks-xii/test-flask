@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # Use the application default credentials
-cred = credentials.Certificate("/key/firebase")
+cred = credentials.Certificate("/key/firebasekey")
 firebase_admin.initialize_app(cred, {
     'projectId': 'new-db-test',
 })
