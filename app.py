@@ -45,7 +45,7 @@ def addUser():
 
     return jsonify({
         'status': 'ok',
-        'message': 'User added'
+        'message': username + ' added'
     })
 
 
