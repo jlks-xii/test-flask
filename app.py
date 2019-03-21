@@ -68,7 +68,7 @@ def add():
 
 @app.route('/user/delete', methods=['DELETE'])
 def deleteUser():
-    post_data = request.get_json()
+    post_data = request.get_json(force=True)
     userID = post_data.get('data')
     db.collection(u'users').document(userID).delete()
 
