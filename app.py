@@ -6,7 +6,7 @@ from firebase_admin import credentials, firestore
 
 # Use the application default credentials
 cred = credentials.ApplicationDefault()
-firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(jsonify(cred))
 
 db = firestore.client()
 
