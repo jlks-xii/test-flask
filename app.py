@@ -66,11 +66,9 @@ def add():
     return jsonify({'added': game_name + ' added.'})
 
 
-@app.route('/user/delete', methods=['DELETE'])
-def deleteUser():
-    post_data = request.get_json(force=True)
-    userID = post_data.get('data')
-    db.collection(u'users').document(userID).delete()
+@app.route('/user/<userid>/delete', methods=['DELETE'])
+def deleteUser(userid):
+    db.collection(u'users').document(userid).delete()
 
     return jsonify({
         'status': 'ok',
