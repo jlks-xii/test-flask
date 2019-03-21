@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # Use the application default credentials
-cred = credentials.Certificate()
+cred = credentials.Certificate('keys/GOOGLE_APPLICATION_CREDENTIALS')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
