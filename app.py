@@ -5,6 +5,10 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # Use the application default credentials
+# firebase_admin.initialize_app(cred, {
+#    'projectId': 'new-db-test'
+# })
+
 cred = credentials.ApplicationDefault()
 firebase_admin.initialize_app(cred)
 
@@ -27,7 +31,11 @@ def index():
     docs = users_ref.get()
 
     for doc in docs:
-        Users.append(doc.to_dict())
+        user = {
+            'id': doc.id,
+            'data': doc.to_dict()
+        }
+        Users.append(user)
         # print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
     return jsonify(Users)
